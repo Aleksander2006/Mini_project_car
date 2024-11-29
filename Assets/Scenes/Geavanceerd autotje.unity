@@ -428,8 +428,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.015256313, y: 0.014255118, z: 0.039591733}
-  m_Center: {x: 0.011365986, y: 0.014181828, z: -0.00834254}
+  m_Size: {x: 0.015256311, y: 0.008105279, z: 0.039591726}
+  m_Center: {x: 0.011365987, y: 0.017256599, z: -0.00834254}
 --- !u!54 &1592842421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -809,8 +809,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.11, y: -22.669, z: 0.61}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 22.3, y: 22.3, z: 22.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1001,7 +1001,7 @@ Transform:
   m_GameObject: {fileID: 919132149585716664}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0013175607, y: -0.000016788254, z: -0.012740562, w: 0.99991804}
-  m_LocalPosition: {x: 10.79, y: 14.81, z: 2.51}
+  m_LocalPosition: {x: 10.39, y: 0.28, z: 2.5}
   m_LocalScale: {x: 317.78998, y: 317.78998, z: 317.78998}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1128,11 +1128,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132149585716664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8098ec362197b8418a4a055fffe2f3a, type: 3}
+  m_Script: {fileID: 11500000, guid: d56f78a62ca7ab148b295770cfdd2bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 117.15
-  rotationSpeed: 308.2
 --- !u!23 &1305037033758947891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2159,7 +2157,7 @@ Transform:
   m_LocalRotation: {x: -0.999077, y: -0.006494796, z: 0.0002762072, w: 0.04245955}
   m_LocalPosition: {x: 0.006746769, y: 0.014229714, z: -0.0029073604}
   m_LocalScale: {x: 0.041496277, y: 0.04149627, z: 0.04149627}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1592842419}
   m_LocalEulerAnglesHint: {x: -175.133, y: 0.06300354, z: -0.74798584}
