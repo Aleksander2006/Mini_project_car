@@ -1,1 +1,1 @@
-In dit project wil ik om te beginnen een auto programmeren die alle kanten op kan rijden en kan remmen. (basic).
+In dit project wil ik om te beginnen een auto programmeren die alle kanten op kan rijden en kan remmen. (basic). Het idee is om het later meer advanced te maken en de car movement beter te laten werken.
