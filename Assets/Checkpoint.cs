@@ -13,41 +13,32 @@ public class Checkpoint : MonoBehaviour
     public TextMeshProUGUI Btime;
 
     void Update(){
-        if(TimeStarted == true) {
+        if (TimeStarted == true){
             laptime = laptime + Time.deltaTime;
-            Ltime.text = "Laptime: " + laptime.ToString("F2");
-            
+            Ltime.text = "Laptime: " + laptime.ToString("F2");  
         }
     }
     public void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.name == "Start/Finish"){ // De Tijd is gestart als de finish wordt getriggered
-            if(checkpoint1 == true && checkpoint2 == true){
 
+            if (TimeStarted == false){ //Als de tijd voor het eerst van start gaat
                 TimeStarted = true;
-
-                if (TimeStarted == false)
-                {
-                    TimeStarted = true;
-                    laptime = 0;
-                    checkpoint1 = false;  
-                    checkpoint2 = false;
-                }                
-
+                checkpoint1 = false;  
+                checkpoint2 = false;
+            }   
+            
+            if(checkpoint1 == true && checkpoint2 == true){
                 if(besttime == 0){
 
                     besttime = laptime;
                 }    
-                if (laptime > besttime){
+                if (laptime < besttime){
 
                     besttime = laptime;
                 }
-            Btime.text = "Best: " + besttime.ToString("F2");
-
-            } else {
-                TimeStarted = true;
-                checkpoint1 = false;  
-                checkpoint2 = false; 
+                Btime.text = "Best: " + besttime.ToString("F2");
+                laptime = 0;
             }
         } 
 
