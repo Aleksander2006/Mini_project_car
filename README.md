@@ -1,1 +1,1 @@
-In dit project wil ik om te beginnen een auto programmeren die alle kanten op kan rijden en kan remmen. (basic). Het idee is om het later meer advanced te maken en de car movement beter te laten werken.
+In deze mini game heb ik een autotje geprogrammeerd, waarmee je over het circuit je snelste ronde kan rijden. Verder heb ik een Camera switch gemaakt, waar je gebruik kan maken om van de overzichtelijke 2d view naar first person te switchen. De knop hiervoor is C en werkt als een toggle.
