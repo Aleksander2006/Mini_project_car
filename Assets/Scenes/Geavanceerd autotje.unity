@@ -509,9 +509,9 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -519,14 +519,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -560,7 +552,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 81.6
+  field of view: 28.7
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -586,8 +578,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -1.1641531e-10, y: 0, z: -6.991242e-10, w: 1}
-  m_LocalPosition: {x: -147.80031, y: 26.089998, z: -56}
+  m_LocalRotation: {x: 0.7045716, y: 4.925822e-10, z: -4.9612303e-10, w: 0.70963293}
+  m_LocalPosition: {x: 57.52, y: 625, z: 4}
   m_LocalScale: {x: 4.54, y: 2.6717901, z: 2.6717901}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -669,6 +661,19 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52d1e5345c395641b482217c8804ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Cameras: []
 --- !u!1 &511277518
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +722,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.001
   m_ForceAppPointDistance: 0
-  m_Mass: 20
+  m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -753,7 +758,7 @@ GameObject:
   - component: {fileID: 726152245}
   - component: {fileID: 726152244}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: Car_view
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,8 +777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 2
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -874,6 +879,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1592842419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1137377769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137377771}
+  - component: {fileID: 1137377770}
+  - component: {fileID: 1137377772}
+  m_Layer: 0
+  m_Name: Map_view
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1137377770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137377769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 3
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 1072144100}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 28.7
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!4 &1137377771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137377769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7045716, y: 4.925822e-10, z: -4.9612303e-10, w: 0.70963293}
+  m_LocalPosition: {x: 57.52, y: 625, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 89.59, y: 0, z: 0}
+--- !u!114 &1137377772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137377769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca67b0c5b96b364a8d0b8a76478513b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1252381131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1264,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592842418}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 2000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1423,7 +1516,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.001
   m_ForceAppPointDistance: 0
-  m_Mass: 20
+  m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -1494,7 +1587,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.001
   m_ForceAppPointDistance: 0
-  m_Mass: 20
+  m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -1689,6 +1782,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b5af09282082cbd4ea8897b13458bdc5, type: 2}
+    - target: {fileID: -7493596028755563170, guid: 391d24e3dcd319b47871dbdf0cedd696, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.5
+      objectReference: {fileID: 0}
     - target: {fileID: -2194226080003508749, guid: 391d24e3dcd319b47871dbdf0cedd696, type: 3}
       propertyPath: m_LocalPosition.y
       value: 21.1
@@ -1870,7 +1967,7 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.001
   m_ForceAppPointDistance: 0
-  m_Mass: 20
+  m_Mass: 100
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
@@ -7615,3 +7712,4 @@ SceneRoots:
   - {fileID: 1532693438}
   - {fileID: 1252381134}
   - {fileID: 726152242}
+  - {fileID: 1137377771}
