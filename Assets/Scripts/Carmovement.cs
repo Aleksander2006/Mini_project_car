@@ -1,21 +1,26 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class Carmovement : MonoBehaviour
 {
-    public float rotationSpeed = 100.0f;
     public GameObject lights;
     public Transform wheelmeshFL;
     public Transform wheelmeshRL;
-
-    float translation = 0f;
-    float speedModifier = 30;
-    float speed = 80f;
-
     private bool isHighBeamOn = false;
+
+    //Steering Function
+    float translation = 0f;
+    float speedModifier = 0; //Variabele om snelheid op te slaan
+    [SerializeField] float maxSpeed = 80; //Variabele om de maximale snelheid aan te geven
+    [SerializeField] float addSpeed = 10;
+
+    
+    public float rotationSpeed = 100.0f;
 
     public void Update()
     {
+        AccelerateOrBrake();
         Steering();
         Lights_highbeam();
     }
@@ -35,28 +40,30 @@ public class Carmovement : MonoBehaviour
         }  
     }
 
-    void Steering (){
+    void AccelerateOrBrake (){
         if (Input.GetKeyDown(KeyCode.W)){
-            translation = speedModifier += 10; // 10 km steeds harder
+            if (speedModifier < maxSpeed) //Als de snelheid kleiner is dan de maxSpeed kan je gas blijven geven
+            {
+               translation = speedModifier += addSpeed; // 10 km steeds harder 
+            }
             Debug.Log(speedModifier);
-            if(speedModifier >= 100){ //limit voor snelheid (110km)
-                speedModifier = 100;
-            }
         }
-        if (Input.GetKey(KeyCode.S)){
-            translation = speedModifier -= 10;
-            if(speedModifier <= 0){
-                speedModifier = 0;
+        if (Input.GetKeyDown(KeyCode.S)){
+            if (speedModifier > 0){ //Als de snelheid groter is dan 0, kan je remmen
+               translation = speedModifier -= 10; 
             }
-        }
-        // Move translation along the object's z-axis
+            Debug.Log(speedModifier);
+        } 
+        transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan 
+    }
+
+    void Steering(){
         transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan
         
         float steerAngle = Input.GetAxis("Horizontal") * rotationSpeed;
         float rotation = steerAngle;
 
-        //Dit zorgt ervoor dat de steering angle wordt gelimiteerd.
-        steerAngle = Mathf.Clamp(steerAngle, -5f, 5f);
+        steerAngle = Mathf.Clamp(steerAngle, -5f, 5f); //Dit zorgt ervoor dat de steering angle wordt gelimiteerd
 
         wheelmeshRL.transform.localRotation = Quaternion.Euler(-180, steerAngle, 0);
         wheelmeshFL.transform.localRotation = Quaternion.Euler(-0.433f, steerAngle, 0);
