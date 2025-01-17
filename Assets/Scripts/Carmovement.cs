@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class Carmovement : MonoBehaviour
 {
+    public Transform pivot;
     public GameObject lights;
     public Transform wheelmeshFL;
     public Transform wheelmeshRL;
@@ -57,7 +58,7 @@ public class Carmovement : MonoBehaviour
     void Steering(){
         transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan
         
-        if (Input.GetKeyDown(KeyCode.A))
+        if (speed >= 10)
         {
             steerAngle = Input.GetAxis("Horizontal") * rotationSpeed;   
         }
