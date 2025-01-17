@@ -5,7 +5,6 @@ using UnityEngine.Rendering;
 
 public class Carmovement : MonoBehaviour
 {
-    public Transform pivot;
     public GameObject lights;
     public Transform wheelmeshFL;
     public Transform wheelmeshRL;
@@ -16,8 +15,9 @@ public class Carmovement : MonoBehaviour
     float speed = 0; //Variabele om snelheid op te slaan
     [SerializeField] float maxSpeed = 80; //Variabele om de maximale snelheid aan te geven
     [SerializeField] float addSpeed = 10;
-    public float rotationSpeed = 100.0f;
 
+    [SerializeField] float test = 10;
+    public float rotationSpeed = 100.0f;
     float steerAngle;
 
     public void Update(){
@@ -43,12 +43,16 @@ public class Carmovement : MonoBehaviour
             if (speed < maxSpeed) //Als de snelheid kleiner is dan de maxSpeed kan je gas blijven geven
             {
                translation = speed += addSpeed; // 10 km steeds harder 
+               rotationSpeed -= 17; //Hoe sneller je gaat des te langzamer de rotatie wordt
+               Debug.Log(rotationSpeed);
             }
             Debug.Log(speed);
         }
         if (Input.GetKeyDown(KeyCode.S)){
             if (speed > 0){ //Als de snelheid groter is dan 0, kan je remmen
-               translation = speed -= addSpeed; 
+               translation = speed -= addSpeed;
+               rotationSpeed += 17;
+               Debug.Log(rotationSpeed); 
             }
             Debug.Log(speed);
         } 
@@ -58,11 +62,10 @@ public class Carmovement : MonoBehaviour
     void Steering(){
         transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan
         
-        if (speed >= 10)
-        {
+        if (speed >= 10){
             steerAngle = Input.GetAxis("Horizontal") * rotationSpeed;   
         }
-        
+
         float rotation = steerAngle;
 
         steerAngle = Mathf.Clamp(steerAngle, -7f, 7f); //Dit zorgt ervoor dat de steering angle wordt gelimiteerd
