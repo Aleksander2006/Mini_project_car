@@ -1,4 +1,5 @@
-using Unity.VisualScripting;
+
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -14,33 +15,28 @@ public class Carmovement : MonoBehaviour
     float speedModifier = 0; //Variabele om snelheid op te slaan
     [SerializeField] float maxSpeed = 80; //Variabele om de maximale snelheid aan te geven
     [SerializeField] float addSpeed = 10;
-
-    
     public float rotationSpeed = 100.0f;
 
-    public void Update()
-    {
+    public void Update(){
         AccelerateOrBrake();
         Steering();
         Lights_highbeam();
     }
 
-    void Lights_highbeam(){
+    private void Lights_highbeam(){
 
-        if (Input.GetKeyDown(KeyCode.H)){
+        if (Input.GetKeyDown(KeyCode.H)){ //Met de knop H kan het dimlicht of grootlicht getoggled worden
         isHighBeamOn = !isHighBeamOn;
 
             Light[] allLights = lights.GetComponentsInChildren<Light>();
 
             foreach (Light lights in allLights){
-
                 lights.intensity = isHighBeamOn ? 5 : 1;
-                
             } 
         }  
     }
 
-    void AccelerateOrBrake (){
+    private void AccelerateOrBrake (){
         if (Input.GetKeyDown(KeyCode.W)){
             if (speedModifier < maxSpeed) //Als de snelheid kleiner is dan de maxSpeed kan je gas blijven geven
             {
@@ -50,7 +46,7 @@ public class Carmovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S)){
             if (speedModifier > 0){ //Als de snelheid groter is dan 0, kan je remmen
-               translation = speedModifier -= 10; 
+               translation = speedModifier -= addSpeed; 
             }
             Debug.Log(speedModifier);
         } 
@@ -70,7 +66,6 @@ public class Carmovement : MonoBehaviour
         
         rotation *= Time.deltaTime;
 
-        // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
     }
 }
