@@ -5,7 +5,8 @@ using UnityEngine.Rendering;
 
 public class Carmovement : MonoBehaviour
 {
-    public GameObject lights;
+    public GameObject Headlights;
+    public GameObject Brakelights;
     public Transform wheelmeshFL;
     public Transform wheelmeshRL;
     private bool isHighBeamOn = false;
@@ -21,21 +22,29 @@ public class Carmovement : MonoBehaviour
     float steerAngle;
 
     public void Update(){
+        FrontLightsHighbeam();
+        BrakeLights();
         AccelerateOrBrake();
         Steering();
-        Lights_highbeam();
     }
 
-    void Lights_highbeam(){
+    void FrontLightsHighbeam(){
         if (Input.GetKeyDown(KeyCode.H)){ //Met de knop H kan het dimlicht of grootlicht getoggled worden
         isHighBeamOn = !isHighBeamOn;
 
-            Light[] allLights = lights.GetComponentsInChildren<Light>();
+            Light[] allLights = Headlights.GetComponentsInChildren<Light>();
 
             foreach (Light lights in allLights){
                 lights.intensity = isHighBeamOn ? 5 : 1;
             } 
-        }  
+        }
+    }
+
+    void BrakeLights(){
+        Light[] allLights = Brakelights.GetComponentsInChildren<Light>();
+            foreach (Light lights in allLights){
+            lights.intensity = Input.GetKey(KeyCode.S) ? 5: 1;
+        }
     }
 
     void AccelerateOrBrake (){
@@ -55,6 +64,7 @@ public class Carmovement : MonoBehaviour
                Debug.Log(rotationSpeed); 
             }
             Debug.Log(speed);
+            BrakeLights(); //Als de auto wordt geremd, gaan de remlichten aan
         } 
         transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan 
     }
