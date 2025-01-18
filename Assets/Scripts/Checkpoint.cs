@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
     public TextMeshProUGUI Ltime;
     public TextMeshProUGUI Btime;
 
+    
     void Update(){
         if (TimeStarted == true){
             laptime = laptime + Time.deltaTime;

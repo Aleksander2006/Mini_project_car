@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class Carmovement : MonoBehaviour
 {
+    private Rigidbody rb;
     public GameObject Headlights;
     public GameObject Brakelights;
     public Transform wheelmeshFL;
@@ -21,11 +22,32 @@ public class Carmovement : MonoBehaviour
     public float rotationSpeed = 100.0f;
     float steerAngle;
 
+    void Start(){
+        rb = GetComponent<Rigidbody>();
+    }
     public void Update(){
         FrontLightsHighbeam();
         BrakeLights();
         AccelerateOrBrake();
         Steering();
+    }
+
+    void FixedUpdate(){
+        ApplyDownforce();
+    }
+
+    void ApplyDownforce()
+    {
+        if (!IsGrounded()) // Alleen downforce toepassen als de auto niet op de grond is
+        {
+            rb.AddForce(-transform.up * 100f); // Pas de kracht aan op basis van je behoefte
+        }
+    }
+
+    bool IsGrounded()
+    {
+        // Controleer of de auto de grond raakt
+        return Physics.Raycast(transform.position, -transform.up, 1.5f); // 1.5f is de afstand tot de grond
     }
 
     void FrontLightsHighbeam(){

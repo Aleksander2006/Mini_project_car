@@ -706,7 +706,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 28.7
+  field of view: 28.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -732,8 +732,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7045716, y: 4.925822e-10, z: -4.9612303e-10, w: 0.70963293}
-  m_LocalPosition: {x: 57.52, y: 625, z: 4}
+  m_LocalRotation: {x: 0.24828725, y: 6.7597233e-10, z: -1.784283e-10, w: 0.96868646}
+  m_LocalPosition: {x: 69, y: 277, z: -549}
   m_LocalScale: {x: 4.54, y: 2.6717901, z: 2.6717901}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -969,7 +969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726152238}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 3.4378897e-10, z: -0.0000000025622258, w: 1}
+  m_LocalRotation: {x: -1.1368683e-12, y: 4.6566123e-10, z: -0.0000000023506699, w: 1}
   m_LocalPosition: {x: -147.43172, y: 26.34581, z: -61.341946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1231,7 +1231,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 28.7
+    FieldOfView: 28.4
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1258,13 +1258,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137377769}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7045716, y: 4.925822e-10, z: -4.9612303e-10, w: 0.70963293}
-  m_LocalPosition: {x: 57.52, y: 625, z: 4}
+  m_LocalRotation: {x: 0.24828725, y: 6.7597233e-10, z: -1.784283e-10, w: 0.96868646}
+  m_LocalPosition: {x: 69, y: 277, z: -549}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 89.59, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.752, y: 0, z: 0}
 --- !u!114 &1137377772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1697,7 +1697,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592842418}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 2000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1714,7 +1714,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &1592842422
 MonoBehaviour:
