@@ -3,15 +3,15 @@ using UnityEngine;
 public class LightControl : MonoBehaviour
 {
     private bool isHighBeamOn = false;
-    public GameObject Headlights;
-    public GameObject Brakelights;
+    [SerializeField] GameObject Headlights;
+    [SerializeField] GameObject Brakelights;
     void Update()
     {
         FrontLightsHighbeam();
         BrakeLights();
     }
 
-    void FrontLightsHighbeam(){
+    private void FrontLightsHighbeam(){
         if (Input.GetKeyDown(KeyCode.H)){ //Met de knop H kan het dimlicht of grootlicht getoggled worden
         isHighBeamOn = !isHighBeamOn;
 

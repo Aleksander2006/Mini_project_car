@@ -4,9 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Carmovement : MonoBehaviour
+public class CarMovement : MonoBehaviour
 {
-    private LightControl carLights;
+    private LightControl lightControlScript; //Referentie naar LightControl script
     public Transform wheelmeshFL;
     public Transform wheelmeshRL;
     float translation = 0f;
@@ -16,11 +16,11 @@ public class Carmovement : MonoBehaviour
     [SerializeField] float rotationSpeed = 100.0f;
     float steerAngle;
 
-    void Start(){
-        carLights = GetComponent<LightControl>();
+    private void Start(){
+        lightControlScript = GetComponent<LightControl>();
     }
 
-    public void Update(){
+    private void Update(){
         AccelerateOrBrake();
         Steering();
     }
@@ -32,15 +32,14 @@ public class Carmovement : MonoBehaviour
                translation = speed += addSpeed; // 10 km steeds harder 
                rotationSpeed -= 17; //Hoe sneller je gaat des te langzamer de rotatie wordt
             }
-            //Debug.Log(speed);
+            
         }
         if (Input.GetKeyDown(KeyCode.S)){
             if (speed > 0){ //Als de snelheid groter is dan 0, kan je remmen
                translation = speed -= addSpeed;
                rotationSpeed += 17;
             }
-            //Debug.Log(speed);
-            carLights.BrakeLights(); //Als de auto wordt geremd, gaan de remlichten aan
+            lightControlScript.BrakeLights(); //Als de auto wordt geremd, gaan de remlichten aan
         } 
         transform.Translate(0, 0, translation * Time.deltaTime); // Pas de positie aan 
     }
